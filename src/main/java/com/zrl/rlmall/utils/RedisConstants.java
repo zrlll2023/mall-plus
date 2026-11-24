@@ -24,4 +24,8 @@ public class RedisConstants {
     public static final long CACHE_SHOP_TTL_MAX_JITTER_MINUTES = 5L;
 
     public static final String LOCK_SHOP_ID_KEY = "lock:shop:";
+
+    public static final String CACHE_VOUCHER_ID = "cache:voucher:id:";
+
+    public static final Long CACHE_VOUCHER_ID_TTL = 30L;
 }

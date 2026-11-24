@@ -7,9 +7,12 @@ import com.zrl.rlmall.dto.Result;
 import com.zrl.rlmall.entity.Shop;
 import com.zrl.rlmall.service.ShopService;
 import com.zrl.rlmall.utils.SystemConstants;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Tag(name = "店铺管理")
 @RestController
 @RequestMapping("/shop")
 public class ShopController {
@@ -22,6 +25,7 @@ public class ShopController {
      * @param id 商铺id
      * @return 商铺详情数据
      */
+    @Operation(summary = "根据 ID 查询店铺")
     @GetMapping("/{id}")
     public Result queryShopById(@PathVariable("id") Long id) {
         return shopService.queryById(id);
@@ -32,6 +36,7 @@ public class ShopController {
      * @param shop 商铺数据
      * @return 商铺id
      */
+    @Operation(summary = "新增店铺")
     @PostMapping
     public Result saveShop(@RequestBody Shop shop) {
         // 写入数据库
@@ -45,6 +50,7 @@ public class ShopController {
      * @param shop 商铺数据
      * @return 无
      */
+    @Operation(summary = "更新店铺信息")
     @PutMapping
     public Result updateShop(@RequestBody Shop shop) {
         // 写入数据库
@@ -57,6 +63,7 @@ public class ShopController {
      * @param current 页码
      * @return 商铺列表
      */
+    @Operation(summary = "按分类分页查询店铺")
     @GetMapping("/of/type")
     public Result queryShopByType(
             @RequestParam("typeId") Integer typeId,
@@ -76,6 +83,7 @@ public class ShopController {
      * @param current 页码
      * @return 商铺列表
      */
+    @Operation(summary = "按名称分页搜索店铺")
     @GetMapping("/of/name")
     public Result queryShopByName(
             @RequestParam(value = "name", required = false) String name,

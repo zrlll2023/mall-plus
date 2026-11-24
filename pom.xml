@@ -87,6 +87,10 @@
             <artifactId>hutool-all</artifactId>
             <version>5.8.48</version>
         </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

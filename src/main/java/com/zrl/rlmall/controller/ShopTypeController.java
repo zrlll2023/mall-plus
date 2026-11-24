@@ -4,6 +4,8 @@ package com.zrl.rlmall.controller;
 import com.zrl.rlmall.dto.Result;
 import com.zrl.rlmall.entity.ShopType;
 import com.zrl.rlmall.service.ShopTypeService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@Tag(name = "店铺分类")
 @RestController
 @RequestMapping("/shop-type")
 public class ShopTypeController {
@@ -21,6 +24,7 @@ public class ShopTypeController {
      * 查询全部店铺类型
      * @return
      */
+    @Operation(summary = "查询店铺分类列表")
     @GetMapping("list")
     public Result queryTypeList() {
         List<ShopType> typeList = typeService.listShopTypes();
